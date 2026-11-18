@@ -50,7 +50,7 @@ public enum BudgetCalculator {
                                         calendar: Calendar = .current) -> [CategoryTotal] {
         var sums: [ExpenseCategory: Money] = [:]
         for record in records where period.contains(record.date, calendar: calendar) {
-            sums[record.category, default: .zero] = sums[record.category, default: .zero] + record.amount
+            sums[record.category, default: .zero] += record.amount
         }
         return sums.map { CategoryTotal(category: $0.key, amount: $0.value) }
             .filter { $0.amount > .zero }

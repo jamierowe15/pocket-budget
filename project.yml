@@ -1,0 +1,69 @@
+# Xcode project spec. GitHub's Macs turn this into PocketBudget.xcodeproj with:  xcodegen generate
+name: PocketBudget
+options:
+  bundleIdPrefix: com.jamierowe
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: targeted
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+packages:
+  BudgetKit: { path: Packages/BudgetKit }
+targets:
+  PocketBudget:
+    type: application
+    platform: iOS
+    sources: [App]
+    info:
+      path: Config/PocketBudget-Info.plist
+      properties:
+        CFBundleDisplayName: Pocket Budget
+        UILaunchScreen: {}
+        ITSAppUsesNonExemptEncryption: false
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    entitlements:
+      path: Config/PocketBudget.entitlements
+      properties:
+        # Lets the app and the widget share a small summary (WidgetSnapshot).
+        com.apple.security.application-groups: [group.com.jamierowe.pocketbudget]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jamierowe.pocketbudget
+        TARGETED_DEVICE_FAMILY: "1,2"
+    dependencies:
+      - package: BudgetKit
+
+  PocketBudgetTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [AppTests]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jamierowe.pocketbudget.tests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_STRICT_CONCURRENCY: minimal
+    dependencies:
+      - target: PocketBudget
+
+schemes:
+  PocketBudget:
+    build:
+      targets:
+        PocketBudget: all
+        PocketBudgetTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets: [PocketBudget]
+      targets: [PocketBudgetTests]

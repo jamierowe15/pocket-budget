@@ -28,3 +28,37 @@ jobs:
       - uses: actions/checkout@v4
       - name: BudgetKit tests on Linux (proves the rules are platform-independent)
         run: cd Packages/BudgetKit && swift test
+
+  app:
+    name: app
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: brew install xcodegen swiftlint
+      - name: Lint
+        run: swiftlint lint --reporter github-actions-logging
+      - name: Generate Xcode project
+        run: xcodegen generate
+      - name: Pick a simulator
+        id: sim
+        run: |
+          name="$(xcrun simctl list devices available | grep -m1 -oE 'iPhone [0-9][^(]*' | sed 's/ *$//')"
+          echo "Using: $name"
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+      - name: Build and test
+        env:
+          SKIP: ""
+        run: |
+          set -o pipefail
+          xcodebuild test -project PocketBudget.xcodeproj -scheme PocketBudget \
+            -destination "platform=iOS Simulator,name=${{ steps.sim.outputs.name }}" \
+            -resultBundlePath TestResults.xcresult \
+            -retry-tests-on-failure -test-iterations 2 \
+            $SKIP CODE_SIGNING_ALLOWED=NO | tail -120
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: TestResults.xcresult
