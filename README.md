@@ -5,11 +5,13 @@ where your money goes. Saved on the phone with **SwiftData**, with a **Home Scre
 and **Siri Shortcuts**.
 
 <!-- auto:demo -->
-_Not generated yet. Run `bash pocket-budget-lab.sh evidence`._
+<img src="docs/images/demo.gif" width="280" alt="Pocket Budget demo">
 <!-- /auto:demo -->
 
 <!-- auto:gallery -->
-_Not generated yet. Run `bash pocket-budget-lab.sh evidence`._
+| Expenses | Budgets | Insights | Dark Mode |
+|---|---|---|---|
+| <img src="docs/images/light-01-expenses.png" width="200" alt="Expenses"> | <img src="docs/images/light-03-budgets.png" width="200" alt="Budgets"> | <img src="docs/images/light-04-insights.png" width="200" alt="Insights"> | <img src="docs/images/dark-01-expenses.png" width="200" alt="Dark Mode"> |
 <!-- /auto:gallery -->
 
 ## Features
@@ -41,7 +43,9 @@ No Mac? Every push is built and tested on GitHub's Macs: see the Actions tab.
 
 ## Coverage
 <!-- auto:coverage -->
-_Not generated yet. Run `bash pocket-budget-lab.sh evidence`._
+| Package | Line coverage | Lines | Gate |
+|---|---|---|---|
+| BudgetKit | 95.4% | 260 | PASS (min 70%) |
 <!-- /auto:coverage -->
 
 ## Docs

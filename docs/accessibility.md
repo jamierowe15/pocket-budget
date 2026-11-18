@@ -15,7 +15,13 @@
 `AccessibilityAuditTests` runs Xcode's `performAccessibilityAudit()` on each screen.
 
 <!-- auto:a11y-audit -->
-_Not generated yet. Run `bash pocket-budget-lab.sh evidence`._
+| Screen | Result | Details |
+|---|---|---|
+| Expenses | 13 issue(s) | Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed |
+| New expense | 8 issue(s) | Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Text clipped<br>Contrast failed<br>Contrast failed<br>Potentially inaccessible text<br>Potentially inaccessible text<br>Potentially inaccessible text |
+| Budgets | 6 issue(s) | Text clipped<br>Contrast nearly passed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed |
+| Insights | 3 issue(s) | Dynamic Type font sizes are partially unsupported<br>Contrast nearly passed<br>Contrast failed |
+| Settings | 14 issue(s) | Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Text clipped<br>Text clipped<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed |
 <!-- /auto:a11y-audit -->
 
 ## Manual checks (do these yourself)
