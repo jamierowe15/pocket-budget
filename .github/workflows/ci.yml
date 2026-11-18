@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  packages:
+    name: packages
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: BudgetKit tests + 70% coverage gate
+        run: COVERAGE_MD=coverage.md bash scripts/run_package_tests.sh
+      - name: Coverage summary
+        if: always()
+        run: cat coverage.md >> "$GITHUB_STEP_SUMMARY" || true
+
+  packages-linux:
+    name: packages-linux
+    runs-on: ubuntu-latest
+    container: swift:6.1
+    steps:
+      - uses: actions/checkout@v4
+      - name: BudgetKit tests on Linux (proves the rules are platform-independent)
+        run: cd Packages/BudgetKit && swift test
