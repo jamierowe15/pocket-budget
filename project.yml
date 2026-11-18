@@ -41,6 +41,30 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"
     dependencies:
       - package: BudgetKit
+      - target: PocketBudgetWidget
+
+  PocketBudgetWidget:
+    type: app-extension
+    platform: iOS
+    sources: [Widget]
+    info:
+      path: Config/PocketBudgetWidget-Info.plist
+      properties:
+        CFBundleDisplayName: Pocket Budget
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: Config/PocketBudgetWidget.entitlements
+      properties:
+        com.apple.security.application-groups: [group.com.jamierowe.pocketbudget]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jamierowe.pocketbudget.widget
+        TARGETED_DEVICE_FAMILY: "1,2"
+        # WidgetKit's callback-based provider predates strict concurrency checking.
+        SWIFT_STRICT_CONCURRENCY: minimal
+    dependencies:
+      - package: BudgetKit
 
   PocketBudgetTests:
     type: bundle.unit-test
@@ -54,16 +78,30 @@ targets:
     dependencies:
       - target: PocketBudget
 
+  PocketBudgetUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jamierowe.pocketbudget.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_STRICT_CONCURRENCY: minimal
+    dependencies:
+      - target: PocketBudget
+
 schemes:
   PocketBudget:
     build:
       targets:
         PocketBudget: all
         PocketBudgetTests: [test]
+        PocketBudgetUITests: [test]
     run:
       config: Debug
     test:
       config: Debug
       gatherCoverageData: true
       coverageTargets: [PocketBudget]
-      targets: [PocketBudgetTests]
+      targets: [PocketBudgetTests, PocketBudgetUITests]

@@ -48,7 +48,7 @@ jobs:
           echo "name=$name" >> "$GITHUB_OUTPUT"
       - name: Build and test
         env:
-          SKIP: ""
+          SKIP: "-skip-testing:PocketBudgetUITests/ScreenshotTests"
         run: |
           set -o pipefail
           xcodebuild test -project PocketBudget.xcodeproj -scheme PocketBudget \
