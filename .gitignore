@@ -1,0 +1,14 @@
+.DS_Store
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+.build/
+.swiftpm/
+.dd/
+evidence/
+.evidence/
+*.xcresult
+lab-ci-failure.log
+.lab-ci-proof
+__pycache__/
