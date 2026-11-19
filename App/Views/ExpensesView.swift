@@ -79,6 +79,9 @@ private struct ExpenseList: View {
                         } label: {
                             ExpenseRow(expense: expense)
                         }
+                        // .plain stops the List tinting the whole row green, which failed the contrast audit.
+                        .buttonStyle(.plain)
+                        .contentShape(Rectangle())
                         .accessibilityHint("Opens the expense to edit it")
                         .swipeActions {
                             Button(role: .destructive) {
