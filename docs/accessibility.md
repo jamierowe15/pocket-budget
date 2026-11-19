@@ -17,11 +17,11 @@
 <!-- auto:a11y-audit -->
 | Screen | Result | Details |
 |---|---|---|
-| Expenses | 13 issue(s) | Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed |
+| Expenses | 13 issue(s) | Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed |
 | New expense | 8 issue(s) | Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Text clipped<br>Contrast failed<br>Contrast failed<br>Potentially inaccessible text<br>Potentially inaccessible text<br>Potentially inaccessible text |
-| Budgets | 6 issue(s) | Text clipped<br>Contrast nearly passed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed |
-| Insights | 3 issue(s) | Dynamic Type font sizes are partially unsupported<br>Contrast nearly passed<br>Contrast failed |
-| Settings | 14 issue(s) | Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Dynamic Type font sizes are partially unsupported<br>Text clipped<br>Text clipped<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed |
+| Budgets | 7 issue(s) | Text clipped<br>Contrast nearly passed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed<br>Contrast failed |
+| Insights | 3 issue(s) | Contrast nearly passed<br>Contrast failed<br>Dynamic Type font sizes are partially unsupported |
+| Settings | 11 issue(s) | Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast nearly passed<br>Contrast failed<br>Dynamic Type font sizes are partially unsupported<br>Text clipped<br>Text clipped |
 <!-- /auto:a11y-audit -->
 
 ## Manual checks (do these yourself)
