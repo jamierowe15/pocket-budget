@@ -79,6 +79,9 @@ private struct ExpenseList: View {
                         } label: {
                             ExpenseRow(expense: expense)
                         }
+                        // A button in a List draws its text in the app's tint (green), which failed the
+                        // contrast audit. A primary tint keeps the text black/white; the icon stays green.
+                        .tint(.primary)
                         .accessibilityHint("Opens the expense to edit it")
                         .swipeActions {
                             Button(role: .destructive) {
