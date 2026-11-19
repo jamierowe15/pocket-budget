@@ -48,6 +48,7 @@ private struct BudgetList: View {
                     } label: {
                         BudgetRow(title: category.displayName, symbol: category.symbolName, status: status)
                     }
+                    .tint(.primary)
                     // The button speaks for the whole row: name, then spent / used / left.
                     .accessibilityLabel(category.displayName)
                     .accessibilityValue(BudgetRow.spokenValue(status))
